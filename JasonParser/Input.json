@@ -1,0 +1,20 @@
+{
+    "LEDTime":[ 
+				{               
+					"StartDate": "12:12:2017",
+					"EndDate": "12:12:2018",
+					"StartTime": "07:00",
+					"EndTime": "23:00"
+				}
+			],
+    "Nutritions":[ 
+				{               
+					"StartDate": "12:12:2017",
+					"EndDate": "12:12:2018",
+					"StartTime": "07:00",
+					"EndTime": "23:00"
+				}
+			],
+    "Accuracy": 1,
+    "Airflow": 15
+}
