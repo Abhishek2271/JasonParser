@@ -1,0 +1,14 @@
+{
+  "peoples":[
+       { 
+           "name":"Anna",  
+           "age": 18,
+           "profession": "student"
+       },
+       {
+           "name":"Ben",
+           "age" : "nineteen",
+           "profession": "mechanic"
+       } 
+  ]
+}

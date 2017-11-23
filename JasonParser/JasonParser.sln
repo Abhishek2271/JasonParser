@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JasonParser", "JasonParser\JasonParser.vcproj", "{D1E770B9-C8D3-4DBC-AD01-82D7EB922D73}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D1E770B9-C8D3-4DBC-AD01-82D7EB922D73}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D1E770B9-C8D3-4DBC-AD01-82D7EB922D73}.Debug|Win32.Build.0 = Debug|Win32
+		{D1E770B9-C8D3-4DBC-AD01-82D7EB922D73}.Release|Win32.ActiveCfg = Release|Win32
+		{D1E770B9-C8D3-4DBC-AD01-82D7EB922D73}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
