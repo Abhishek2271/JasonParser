@@ -90,7 +90,6 @@ struct MyHandler {
 
 		Document document;
 		document.Parse(json);
-		
 		if(VerifyJason(json))
 		{		
 			const Value& LedTime = document["LEDTime"];
@@ -98,17 +97,16 @@ struct MyHandler {
 
 			for (SizeType i = 0; i < LedTime.Size(); i++) // Uses SizeType instead of size_t
 			{
-				printf(LedTime[i].);
-				for (SizeType j = 0; j < LedTime[i].Size(); j++)
-				{
-					 
-				}
+				printf("StartDate = %s, EndDate = %s \n", document["LEDTime"][i]["StartDate"].GetString(), document["LEDTime"][i]["EndDate"].GetString());
 			}
-			
-
 			const Value& Nutritions = document["Nutritions"];
 			assert(Nutritions.IsArray());
+			for (SizeType i = 0; i < Nutritions.Size(); i++) // Uses SizeType instead of size_t
+			{
+				printf("StartDate = %s, EndDate = %s \n", document["Nutritions"][i]["StartDate"].GetString(), document["Nutritions"][i]["EndDate"].GetString());
+			}
 
+			
 			printf("Accuracy is: %f%\n", document["Accuracy"].GetFloat());
 			printf("Airflow is: %d%\n", document["Airflow"].GetInt());
 		}
