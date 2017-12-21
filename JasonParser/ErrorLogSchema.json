@@ -1,4 +1,3 @@
-<pre lang="json">
 {
   "$schema": "http://json-schema.org/draft-06/schema#",
   "title": "JASON out to Raspberry for ONLY ERRORS OR ANOMALIES",
@@ -8,7 +7,7 @@
   {
     "SENSOR OR INPUT ERROR LOG": 
 	{
-	  "Description": "State discrepancies and expected values of sensors. This could be TEMPERATURE, EC, PH, NUTRITION"
+	  "Description": "State discrepancies and expected values of sensors. This could be TEMPERATURE, EC, PH, NUTRITION",
       "type": "array",
             "items": 
 			{
@@ -27,7 +26,7 @@
     },
     "OUTPUT ERROR LOGS": 
 	{
-	  "Description": "A log sequence of errors for output pins."
+	  "Description": "A log sequence of errors for output pins.",
       "type": "array",
 	   "items": 
 			{
@@ -45,7 +44,7 @@
     },    
 	"OTHERS": 
 	{
-	  "Description": "Other errors."
+	  "Description": "Other errors.",
       "type": "array",
 	   "items": 
 			{
@@ -62,4 +61,4 @@
     },  
   "additionalProperties": false
 }
-</pre>
+}

@@ -1,14 +1,7 @@
-<pre lang="json">
 {
-  "$schema": "http://json-schema.org/draft-06/schema#",
-  "title": "JASON input to Arduino",
-  "description": "Gets timings and other details for controlling output",
-  "type": "object",
-  "properties": 
-  {
-    "LEDTime": 
+    "LED": 
 	{
-	  "Description": "A sequence of start and end time for subsequent dates at which the LED should be turned ON"
+	  "Description": "A sequence of start and end time for subsequent dates at which the LED should be turned ON",
       "type": "array",
             "items": 
 			{
@@ -26,11 +19,11 @@
     },
     "Nutritions": 
 	{
-	  "Description": "A sequence of start and end time for subsequent dates at which the nutrition levels could be controlled"
+	  "Description": "A sequence of start and end time for subsequent dates at which the nutrition levels could be controlled",
       "type": "array",
 	   "items": 
 			{
-                "type": "object",
+                "type": "object",	
 				 "Properties": 
 				{
 						"StartDate": {"type": "Date"},
@@ -45,7 +38,7 @@
     },    
 	"PH": 
 	{
-	  "Description": "A sequence of start and end time for subsequent dates at which the ph levels could be controlled"
+	  "Description": "A sequence of start and end time for subsequent dates at which the ph levels could be controlled",
       "type": "array",
 	   "items": 
 			{
@@ -64,7 +57,7 @@
     },
     "AirflowVent_1": 
 	{
-	  "Description": "Airflow vent 1 which is can be either ON/OFF with certain value for speed (mid, high, low) but cannot be controlled per date or time"
+	  "Description": "Airflow vent 1 which is can be either ON/OFF with certain value for speed (mid, high, low) but cannot be controlled per date or time",
       "type": "object",
 			"Properties": 
 			{
@@ -74,7 +67,7 @@
     },
 	"AirflowVent_2": 
 	{
-	  "Description": "Airflow vent 2 which is can be ON/OFF with certain value for speed (mid, high, low) And also has start and end times"
+	  "Description": "Airflow vent 2 which is can be ON/OFF with certain value for speed (mid, high, low) And also has start and end times",
       "type": "array",
 	   "items": 
 	   {
@@ -94,4 +87,3 @@
   "required": [ "LEDTime", "Nutritions", "PH", "AirflowVent_1", "AirflowVent_2" ],
   "additionalProperties": false
 }
-</pre>
