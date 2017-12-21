@@ -1,0 +1,65 @@
+<pre lang="json">
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JASON out to Raspberry for ONLY ERRORS OR ANOMALIES",
+  "description": "Write the event log to Raspberry",
+  "type": "object",
+  "properties": 
+  {
+    "SENSOR OR INPUT ERROR LOG": 
+	{
+	  "Description": "State discrepancies and expected values of sensors. This could be TEMPERATURE, EC, PH, NUTRITION"
+      "type": "array",
+            "items": 
+			{
+                "type": "object",
+				 "Properties": 
+				{
+						"Sensor": {"type": "String"},
+						"LogStartTime": {"type": "Time"},
+						"LogEndTime": {"type": "Time"},
+						"PinValue": {"type": "String"},						
+						"ExpectedValue": {"type": "String"},
+						"Remark": {"type": "String"},
+						"Severity" : {"type": "String"},
+				},
+            },
+    },
+    "OUTPUT ERROR LOGS": 
+	{
+	  "Description": "A log sequence of errors for output pins."
+      "type": "array",
+	   "items": 
+			{
+                "type": "object",
+				 "Properties": 
+				{
+						"LogStartTime": {"type": "Time"},
+						"LogEndTime": {"type": "Time"},
+						"PinState" : {"type": "String"},
+						"Expected": {"type": "String"},
+						"Error": {"type": "String"},
+						"Severity" : {"type": "String"},
+				},
+            },
+    },    
+	"OTHERS": 
+	{
+	  "Description": "Other errors."
+      "type": "array",
+	   "items": 
+			{
+                "type": "object",
+				 "Properties": 
+				{
+						"LogStartTime": {"type": "Time"},
+						"LogEndTime": {"type": "Time"},
+						"Error" : {"type": "String"},
+						"Severity" : {"type": "String"},
+				},
+             "required": ["StartTime", "EndTime", "State"]
+            },
+    },  
+  "additionalProperties": false
+}
+</pre>

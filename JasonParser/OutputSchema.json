@@ -1,0 +1,98 @@
+<pre lang="json">
+{
+  "$schema": "http://json-schema.org/draft-06/schema#",
+  "title": "JASON out to Raspberry",
+  "description": "Write the event log to Raspberry",
+  "type": "object",
+  "properties": 
+  {
+    "LEDTime": 
+	{
+	  "Description": "A log sequence of start and end time with state of LED"
+      "type": "array",
+            "items": 
+			{
+                "type": "object",
+				 "Properties": 
+				{
+						"StartTime": {"type": "Time"},
+						"EndTime": {"type": "Time"},
+						"State": {"type": "Boolean"},
+				},
+				"required": ["StartTime", "EndTime", "State"]
+            },
+      "minItems": 1
+    },
+    "Nutritions": 
+	{
+	  "Description": "A log sequence of start and end time for Nutrition pumps states."
+      "type": "array",
+	   "items": 
+			{
+                "type": "object",
+				 "Properties": 
+				{
+						"StartTime": {"type": "Time"},
+						"EndTime": {"type": "Time"},
+						"State" : {"type": "Boolean"},
+				},
+             "required": ["StartTime", "EndTime", "State"]
+            },
+       "minItems": 1
+    },    
+	"PH": 
+	{
+	  "Description": "A log sequence of start and end time for PH pumps."
+      "type": "array",
+	   "items": 
+			{
+                "type": "object",
+				 "Properties": 
+				{
+						"StartTime": {"type": "Time"},
+						"EndTime": {"type": "Time"},
+						"State" : {"type": "Boolean"},
+				},
+             "required": ["StartTime", "EndTime", "State"]
+            },
+       "minItems": 1
+    },
+    "AirflowVent_1": 
+	{
+	  "Description": "A log sequence of the Vent 1 which is can be either ON/OFF with certain value for speed (mid, high, low)"
+      "type": "array",
+	   "items": 
+			{
+                "type": "object",
+				 "Properties": 
+				{
+						"StartTime": {"type": "Time"},
+						"EndTime": {"type": "Time"},
+						"State" : {"type": "Boolean"},
+				},
+             "required": ["StartTime", "EndTime", "Speed"]
+            },
+       "minItems": 1
+    },
+	"AirflowVent_2": 
+	{
+	  "Description": "A log state of the vent 2 which is can be ON/OFF with certain value for speed (mid, high, low) And also has "
+      "type": "array",
+	   "items": 
+	   {
+                "type": "object",
+				 "Properties": 
+				{
+						"StartTime": {"type": "Time"},
+						"EndTime": {"type": "Time"},
+						"Speed" : {"type": "String"},
+				},
+             "required": ["StartTime", "EndTime", "Speed"]
+        },
+       "minItems": 1
+    },    
+  
+  "required": [ "LEDTime", "Nutritions", "Accuracy", "Airflow" ],
+  "additionalProperties": false
+}
+</pre>
