@@ -20,10 +20,11 @@ bool VerifyJason(char json[])
 
 	try
 	{
-		if((document.HasMember("Accuracy")) && 
-			(document.HasMember("Airflow")) && 
+		if((document.HasMember("AirflowVent_1")) && 
+			(document.HasMember("AirflowVent_2"))	&& 
+			(document.HasMember("PH")) && 
 			(document.HasMember("Nutritions")) && 
-			(document.HasMember("LEDTime")))
+			(document.HasMember("LED")))
 		{
 			return true;
 		}		
@@ -66,49 +67,47 @@ struct MyHandler {
     bool EndArray(SizeType elementCount) { cout << "EndArray(" << elementCount << ")" << endl; return true; }
 };
 
-	int main() {
-	char json[] = " {  \
-									\"LEDTime\":[\
-												{ \
-													\"StartDate\": \"12:12:2017\",\
-													\"EndDate\": \"12:12:2018\",\
-													\"StartTime\": \"07:00\",\
-													\"EndTime\": \"23:00\"\
-												}\
-											],\
-									\"Nutritions\":[ \
-												{ \
-													\"StartDate\": \"12:12:2017\",\
-													\"EndDate\": \"12:12:2018\",\
-													\"StartTime\": \"07:00\",\
-													\"EndTime\": \"23:00\"\
-												}\
-											],\
-									\"Accuracy\": 0.5,\
-									\"Airflow\": 15\
-							} ";
+int main() {
+	char json[] = "{\
+						\"LED\":[{\"StartDateTime\": \"12.12.2017T05:45\",\"EndDateTime\": \"12.12.2018T18:45\"}],\
+						\"Nutritions\":[{\"StartDate\": \"12:12:2017\",\"EndDate\": \"12:12:2018\",\"ECValue\": 7.89,\"Accuracy\": 0.5}],\
+						\"PH\":[{\"StartDate\": \"12:12:2017\",\"EndDate\": \"12:12:2018\",\"PHValue\": 7.89,\"Accuracy\": 0.5}],\
+						\"AirflowVent_1\":[{\"Speed\": \"Medium\"}],\
+						\"AirflowVent_2\":[{\"StartDateTime\": \"12.12.2017T05:45\",\"EndDateTime\": \"12.12.2018T18:45\",\"Speed\":\"Medium\"}]\
+					}";
 
 		Document document;
 		document.Parse(json);
 		if(VerifyJason(json))
 		{		
-			const Value& LedTime = document["LEDTime"];
+			const Value& LedTime = document["LED"];
 			assert(LedTime.IsArray());
 
 			for (SizeType i = 0; i < LedTime.Size(); i++) // Uses SizeType instead of size_t
 			{
-				printf("StartDate = %s, EndDate = %s \n", document["LEDTime"][i]["StartDate"].GetString(), document["LEDTime"][i]["EndDate"].GetString());
+				printf("StartDateTime = %s, EndDateTime = %s \n", document["LED"][i]["StartDateTime"].GetString(), document["LED"][i]["EndDateTime"].GetString());
 			}
 			const Value& Nutritions = document["Nutritions"];
 			assert(Nutritions.IsArray());
 			for (SizeType i = 0; i < Nutritions.Size(); i++) // Uses SizeType instead of size_t
 			{
-				printf("StartDate = %s, EndDate = %s \n", document["Nutritions"][i]["StartDate"].GetString(), document["Nutritions"][i]["EndDate"].GetString());
+				printf("StartDate = %s, EndDate = %s, ECValue = %f, Accuracy = %f \n", document["Nutritions"][i]["StartDate"].GetString(), document["Nutritions"][i]["EndDate"].GetString(), document["Nutritions"][i]["ECValue"].GetFloat(), document["Nutritions"][i]["Accuracy"].GetFloat());
+			}
+			const Value& PH = document["PH"];
+			assert(PH.IsArray());
+			for (SizeType i = 0; i < PH.Size(); i++) // Uses SizeType instead of size_t
+			{
+				printf("StartDate = %s, EndDate = %s, PHValue = %f, Accuracy = %f \n", document["PH"][i]["StartDate"].GetString(), document["PH"][i]["EndDate"].GetString(), document["PH"][i]["PHValue"].GetFloat(), document["PH"][i]["Accuracy"].GetFloat());
 			}
 
-			
-			printf("Accuracy is: %f%\n", document["Accuracy"].GetFloat());
-			printf("Airflow is: %d%\n", document["Airflow"].GetInt());
+			printf("AirflowVent 1 speed is = %s \n", document["AirflowVent_1"][0]["Speed"].GetString());
+
+			const Value& AirflowVent_2 = document["AirflowVent_2"];
+			assert(AirflowVent_2.IsArray());
+			for (SizeType i = 0; i < AirflowVent_2.Size(); i++) // Uses SizeType instead of size_t
+			{
+				printf("StartDateTime = %s, EndDateTime = %s, Speed = %s \n", document["AirflowVent_2"][i]["StartDateTime"].GetString(), document["AirflowVent_2"][i]["EndDateTime"].GetString(), document["AirflowVent_2"][i]["Speed"].GetString());
+			}
 		}
 		else
 		{
@@ -120,4 +119,4 @@ struct MyHandler {
 		//reader.Parse(ss, handler);
 
     return 0;
-	}	  
+}	  

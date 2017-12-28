@@ -1,0 +1,7 @@
+{
+"LED":[{"StartDateTime": "12.12.2017T05:45","EndDateTime": "12.12.2018T18:45"}],	
+"Nutritions":[{"StartDate": "12:12:2017","EndDate": "12:12:2018","ECValue": "07.89","Accuracy": "0.5"}],
+"PH":[{"StartDate": "12:12:2017","EndDate": "12:12:2018","PHValue": "07.89","Accuracy": "0.5"}],
+"AirflowVent_1":[{"Speed": "Medium"	}],
+"AirflowVent_2":["StartDateTime": "12.12.2017T05:45","EndDateTime": "12.12.2018T18:45","Speed": "Medium"}]	
+}
